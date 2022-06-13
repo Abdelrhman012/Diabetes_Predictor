@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Detector</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/Normalize.css') }}">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="sp-header">INSERT YOUR DATA</div>
+        <div class="data">
+            <div class="insert-data">
+                <form action="insert-data" method="post" id="detect-form">
+                    <p><input title="Enter No of Pregnancies" type="number" min="0" max="20" placeholder="No of Pregnancies" required name="Pregnancies"/></p>
+                    <p><input title="Enter Your Glucose" type="number" min="0" max="200" placeholder="Glucose" required name="Glucose"/></p>
+                    <p><input title="Enter Your Blood Pressure" type="number" min="0" max="150" placeholder="Blood Pressure" required name="BloodPressure"/></p>
+                    <p><input title="Enter Your Skin Thickness" type="number" min="0" max="100" placeholder="Skin Thickness" required name="SkinThickness"/></p>
+                    <p><input title="Enter Your Insulin" type="number" min="0" max="1000" placeholder="Insulin" required name="Insulin"/></p>
+                    <p><input title="Enter Your BMI" type="number" min="0" max="80" placeholder="BMI" required step="0.001" name="BMI"/></p>
+                    <p><input title="Enter Your Diabetes Pedigree Function" type="number" min="0" max="5" placeholder="Diabetes Pedigree Function" required step="0.001" name="DiabetesPedigreeFunction"/></p>
+                    <p><input title="Enter Your Age" type="number" min="0" max="100" placeholder="Age" required name="Age"/></p>
+                    <p><input type="submit" value="Predict" class="button detect-btn"></p>
+                </form>
+            </div>
+            <div class="result">
+                <div class="result-card">
+                    <h2>Prediction Result is</h2>
+                    <h1>{{content}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{{url_for('static', filename='JS/main.js')}}"></script>
+</html>
